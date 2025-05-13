@@ -1,0 +1,77 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1001;
+}
+
+.modal img {
+  max-width: 220px;
+  max-height: 220px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+
+.cartBtn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #7a7a7a;
+}
+
+.variantSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; // adds space between dropdown and button
+  margin-top: 20px;
+}
+
+.variantSection select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 200px;
+  font-size: 14px;
+  z-index: 10; // ensures it shows on top if needed
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}

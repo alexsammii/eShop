@@ -1,0 +1,32 @@
+
+.card {
+  cursor: pointer;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f5e8e8;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: contain;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: #444;
+  }
+}

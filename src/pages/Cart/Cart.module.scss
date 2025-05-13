@@ -1,0 +1,159 @@
+.cartPage {
+  background: #fff;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 80px 20px;
+}
+
+
+.container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  width: 100%;
+  border: 1px solid #eee;
+  color: #222;
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  font-size: 1.1rem;
+  padding: 40px 0;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.info {
+  flex: 1;
+}
+
+.info h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #222;
+}
+
+.info p {
+  margin: 4px 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  span {
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 8px;
+  }
+
+  // This applies only to +/- buttons
+  button:not(.removeBtn) {
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #333;
+    }
+  }
+}
+
+.totalBox {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: right;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+  }
+}
+
+.summaryBox {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: right;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    margin: 10px 0;
+  }
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+}
+
+.clearBtn {
+  background: #ccc;
+  color: #000;
+
+  &:hover {
+    background: #999;
+  }
+}
+
+.checkoutBtn {
+  background: #222;
+  color: #fff;
+
+  &:hover {
+    background: #000;
+  }
+}
