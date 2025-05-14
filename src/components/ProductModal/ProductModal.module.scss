@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px; // adds space between dropdown and button
+  gap: 12px;
   margin-top: 20px;
 }
 
@@ -67,7 +67,7 @@
   border-radius: 6px;
   width: 200px;
   font-size: 14px;
-  z-index: 10; // ensures it shows on top if needed
+  z-index: 10;
 }
 
 .error {

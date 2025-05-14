@@ -7,7 +7,7 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  // ✅ Add to Cart
+  // Add to Cart
   const addToCart = (product) => {
     const existingItem = cartItems.find(
       (item) =>
@@ -36,13 +36,13 @@ export const CartProvider = ({ children }) => {
         {
           ...product,
           quantity: 1,
-          stock: product.quantity, // used for stock checks
+          stock: product.quantity,
         },
       ]);
     }
   };
 
-  // ✅ Increase Quantity
+  // Increase
   const increaseQuantity = (item) => {
     const cartItem = cartItems.find(
       (c) => c.id === item.id && c.selectedVariant === item.selectedVariant
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // ✅ Decrease Quantity
+  // Decrease
   const decreaseQuantity = (item) => {
     setCartItems(
       cartItems
@@ -76,7 +76,7 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // ✅ Remove from Cart
+  // Remove from Cart
   const removeFromCart = (item) => {
     setCartItems(
       cartItems.filter(
@@ -86,17 +86,17 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // ✅ Clear Cart
+  // Clear Cart
   const clearCart = () => {
     setCartItems([]);
   };
 
-  // ✅ Total Items
+  // Total Items
   const totalItems = useMemo(() => {
     return cartItems.reduce((acc, item) => acc + item.quantity, 0);
   }, [cartItems]);
 
-  // ✅ Total Price (case-insensitive key match for bottles/cans)
+  // Total Price
   const totalPrice = useMemo(() => {
     return cartItems.reduce((acc, item) => {
       if (!item || !item.prices || !item.selectedVariant) return acc;

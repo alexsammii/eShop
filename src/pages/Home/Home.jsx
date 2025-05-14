@@ -90,7 +90,6 @@ const Home = () => {
             <div className={styles.socialLinks}>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a href="https://www.bellaspritz.com.au" target="_blank" rel="noopener noreferrer">Website</a>
             </div>
           </div>
         </footer>
