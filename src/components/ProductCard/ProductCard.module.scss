@@ -66,3 +66,17 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   }
 }
+
+.favIcon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+}

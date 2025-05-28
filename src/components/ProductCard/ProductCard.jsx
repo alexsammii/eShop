@@ -1,23 +1,34 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.scss";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { useState } from "react";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../firebase-config";
 
 const ProductCard = ({ product }) => {
-  const [isFavourite, setIsFavourite] = useState(product.favourited || false);
+  const [isFavourited, setIsFavourited] = useState(product.favourited || false);
 
-  const toggleFavourite = (e) => {
-    e.preventDefault(); 
-    setIsFavourite(!isFavourite);
+  const toggleFavourite = async () => {
+    const newStatus = !isFavourited;
+    setIsFavourited(newStatus);
+
+    try {
+      const productRef = doc(db, "products", product.id);
+      await updateDoc(productRef, {
+        favourited: newStatus,
+      });
+    } catch (error) {
+      console.error("Failed to update favourite:", error);
+      setIsFavourited(!newStatus);
+    }
   };
 
   return (
     <div className={styles.productCard}>
+      <div className={styles.favIcon} onClick={toggleFavourite}>
+        {isFavourited ? <FaHeart color="red" /> : <FaRegHeart />}
+      </div>
       <Link to={`/product/${product.id}`} className={styles.cardLink}>
-        <div className={styles.heartIcon} onClick={toggleFavourite}>
-          {isFavourite ? <FaHeart color="red" /> : <FaRegHeart color="grey" />}
-        </div>
-
         <img
           src={product.imageUrl}
           alt={product.name}
