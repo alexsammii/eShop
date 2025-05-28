@@ -30,6 +30,11 @@
   width: 250px;
   max-width: 80vw;
   transition: all 0.3s ease-in-out;
+    
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   img {
     width: 100%;
