@@ -6,6 +6,7 @@ import styles from "./ProductPage.module.scss";
 import { useCart } from "../../context/CartContext";
 import { toast } from "react-toastify";
 
+
 const ProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -38,6 +39,7 @@ const ProductPage = () => {
     addToCart(productWithVariant);
     toast.success("Added to cart!");
   };
+
 
   if (!product) return <p className={styles.loading}>Loading product...</p>;
 
