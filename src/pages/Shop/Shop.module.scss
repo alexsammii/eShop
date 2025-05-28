@@ -1,18 +1,19 @@
 .shopPage {
-  padding: 60px 5%;
-  background-color: #fff;
+  padding: 60px 20px;
+  background-color: #ffffff;
   color: #222;
 
   h2 {
-    margin-bottom: 30px;
-    font-size: 1.8rem;
     text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
   }
+}
 
-  .grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
   justify-items: center;
-}
+  margin-bottom: 60px;
 }

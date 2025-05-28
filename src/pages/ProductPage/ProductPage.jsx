@@ -2,24 +2,26 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase-config";
+import { getProductById } from "../../services/ProductService";
+
 
 const ProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const docRef = doc(db, "products", productId);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setProduct(docSnap.data());
-      } else {
-        console.warn("No product found");
-      }
-    };
+useEffect(() => {
+  const fetchProduct = async () => {
+    const result = await getProductById(productId);
+    if (result) {
+      setProduct(result);
+    } else {
+      console.warn("No product found");
+    }
+  };
 
-    fetchProduct();
-  }, [productId]);
+  fetchProduct();
+}, [productId]);
+
 
   if (!product) return <p>Loading product...</p>;
 
