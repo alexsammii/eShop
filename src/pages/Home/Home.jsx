@@ -52,7 +52,7 @@ const Home = () => {
               <img src="/bella-pour.jpg" alt="Ruby Pour" />
             </div>
             <div className={styles.aboutText}>
-              <h2>A new kind of spritz™</h2>
+              <h2>A new kind of spritz</h2>
               <p>
                 Bella Spritz is your new favourite summer drink – bold, refreshing,
                 and full of life. Crafted with quality spirits and juicy flavours,
