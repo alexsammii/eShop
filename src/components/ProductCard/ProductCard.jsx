@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
+import styles from "./ProductCard.module.scss";
 
-import React from 'react';
-import styles from './ProductCard.module.scss';
-
-const ProductCard = ({ product, onClick }) => {
+const ProductCard = ({ product }) => {
   return (
-    <div className={styles.card} onClick={() => onClick(product)}>
-      <img src={product.imageUrl} alt={product.name} />
-      <h3>{product.name}</h3>
-      <p>Click to view options</p>
+    <div className={styles.productCard}>
+      <Link to={`/product/${product.id}`} className={styles.cardLink}>
+        <img src={product.imageUrl} alt={product.name} />
+        <h4>{product.name}</h4>
+        <p>Click to view options</p>
+      </Link>
     </div>
   );
 };
