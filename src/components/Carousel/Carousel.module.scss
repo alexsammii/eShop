@@ -46,18 +46,24 @@
 }
 
 .arrow {
-  font-size: 2.5rem;
-  background: none;
+  font-size: 1.2rem;
+  background-color: transparent;
   border: none;
+  color: #444;
   cursor: pointer;
-  color: #333;
-  transition: color 0.2s ease;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: #000;
+    background-color: #f0f0f0;
+    color: black;
+    transform: scale(1.1);
   }
 
   @media (max-width: 600px) {
-    font-size: 2rem;
+    font-size: 1rem;
+    padding: 6px;
   }
 }
+
