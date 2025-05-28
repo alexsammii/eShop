@@ -13,7 +13,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <ToastContainer position="top-right" autoClose={1000} />
+        <ToastContainer position="bottom-left" autoClose={1000} />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

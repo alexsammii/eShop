@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase-config";
 import styles from "./ProductPage.module.scss";
 import { useCart } from "../../context/CartContext";
@@ -31,17 +31,45 @@ const ProductPage = () => {
     fetchProduct();
   }, [productId]);
 
-  const handleAddToCart = (variant) => {
+
+const handleAddToCart = async (variant) => {
+  const variantKey = variant.toLowerCase();
+  const variantCount = product.variantMultiplier?.[variantKey] ?? 1;
+  const currentStock = product.quantity ?? 0;
+
+  if (currentStock < variantCount) {
+    toast.error("Not enough stock available.");
+    return;
+  }
+
+  try {
+    // Update Firestore stock before adding to cart
+    const newStock = currentStock - variantCount;
+
+    const productRef = doc(db, "products", product.id);
+    await updateDoc(productRef, {
+      quantity: newStock,
+    });
+
+    // Add to cart
     const productWithVariant = {
       ...product,
       selectedVariant: variant,
+      quantity: newStock, // update local copy for cart use
     };
+
     addToCart(productWithVariant);
     toast.success("Added to cart!");
-  };
+  } catch (error) {
+    console.error("Failed to update Firestore stock:", error);
+    toast.error("Something went wrong while adding to cart.");
+  }
+};
+
 
 
   if (!product) return <p className={styles.loading}>Loading product...</p>;
+
 
   return (
     <div className={styles.productPage}>
