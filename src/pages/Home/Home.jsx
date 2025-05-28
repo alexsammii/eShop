@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styles from './Home.module.scss';
 import layout from "../../scss/Layout.module.scss";
 import Navbar from "../../components/NavBar/Navbar";
+import Carousel from "../../components/Carousel/Carousel";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -66,22 +67,7 @@ const Home = () => {
         </section>
 
         {/* Featured Flavours Carousel */}
-        <section className={`${styles.featured} ${layout.whiteBackground}`}>
-          <div className={layout.container}>
-            <h2>Featured Flavours</h2>
-            <div className={styles.carousel}>
-              {featured.map((p) => (
-                <div key={p.id} className={styles.carouselItem}>
-                  {isHome && p.name === 'Bella Spritz – Blood Orange and Bitters' && (
-                    <div className={styles.ribbon}>New Flavour</div>
-                  )}
-                  <img src={p.imageUrl} alt={p.name} />
-                  <h4>{p.name}</h4>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Carousel items={featured} />
 
         {/* Footer */}
         <footer className={styles.footer}>

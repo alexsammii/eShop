@@ -1,22 +1,36 @@
-import { useState } from "react";
-import styles from "../../pages/Home/Home.module.scss";
+import { useState, useEffect } from "react";
+import styles from "./Carousel.module.scss";
 
-const Carousel = ({ items, isHome = false }) => {
+const Carousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Handle wrap-around safely
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? items.length - 1 : prev - 1
+    );
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === items.length - 1 ? 0 : prev + 1
+    );
   };
 
+  // ❗ Prevent crash if items aren't ready
+  if (!items || items.length === 0) {
+    return (
+      <section className={styles.carouselWrapper}>
+        <h2>Featured Flavours</h2>
+        <p>Loading featured items...</p>
+      </section>
+    );
+  }
 
-  const currentItem = items[currentIndex];
+  const item = items[currentIndex];
 
   return (
-    <section className={styles.featured}>
+    <section className={styles.carouselWrapper}>
       <h2>Featured Flavours</h2>
       <div className={styles.carouselContainer}>
         <button onClick={prevSlide} className={styles.arrow}>
@@ -24,8 +38,8 @@ const Carousel = ({ items, isHome = false }) => {
         </button>
 
         <div className={styles.carouselItem}>
-          <img src={currentItem.imageUrl} alt={currentItem.name} />
-          <h4>{currentItem.name}</h4>
+          <img src={item.imageUrl} alt={item.name} />
+          <h4>{item.name}</h4>
         </div>
 
         <button onClick={nextSlide} className={styles.arrow}>
