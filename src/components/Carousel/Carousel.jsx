@@ -17,7 +17,6 @@ const Carousel = ({ items }) => {
     );
   };
 
-  // ❗ Prevent crash if items aren't ready
   if (!items || items.length === 0) {
     return (
       <section className={styles.carouselWrapper}>

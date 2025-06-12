@@ -55,7 +55,7 @@ const handleAddToCart = async (variant) => {
     const productWithVariant = {
       ...product,
       selectedVariant: variant,
-      quantity: newStock, // update local copy for cart use
+      quantity: newStock, 
     };
 
     addToCart(productWithVariant);
